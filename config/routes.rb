@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resoutces :users
+    resources :users
   end
 
   root to: 'tasks#index'
