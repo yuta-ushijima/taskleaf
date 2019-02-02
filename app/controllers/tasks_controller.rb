@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def index
-    @tasks = current_user.tasks
+    # タスクを日時が最新で表示
+    @tasks = current_user.tasks.order(created_at: :desc)
   end
 
   def show
