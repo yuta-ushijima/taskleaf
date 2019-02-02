@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:show, :edit, :destroy, :update]
+
   def index
     # タスクを日時が最新で表示
     @tasks = current_user.tasks.order(created_at: :desc)
@@ -44,5 +46,9 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:name, :description)
+  end
+
+  def set_task
+    @task = current_user.task.find(params[:id])
   end
 end
