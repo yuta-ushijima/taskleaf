@@ -65,6 +65,21 @@ RSpec.describe 'タスク管理機能', type: :system do
     end
   end
 
+  describe '一覧画面での削除機能' do
+    context 'ユーザーAがログインしているとき' do
+      let(:login_user) { user_a }
+
+      it 'ユーザーAが作成したタスクが削除されること' do
+        page.accept_confirm 'タスク「最初のタスク」を削除します。よろしいですか？' do
+          click_link '削除'
+        end
+        within '.alert' do
+          expect(page).to have_content "タスク「最初のタスク」を削除しました。"
+        end
+      end
+    end
+  end
+
   describe '詳細表示機能' do
     context 'ユーザーAがログインしているとき' do
       let(:login_user) { user_a }
