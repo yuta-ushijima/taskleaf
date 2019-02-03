@@ -9,6 +9,6 @@ FactoryBot.define do
     name { '管理者ユーザー' }
     email { 'admim@example.com' }
     password { 'passwordAdmin' }
-    admin true
+    admin { true }
   end
 end
