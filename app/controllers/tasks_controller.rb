@@ -18,6 +18,12 @@ class TasksController < ApplicationController
     # @task = Task.new(task_params.merge(user_id: current_user.id))
     # current_userに対してリレーションによるメソッドを利用してtaskオブジェクトを作成
     @task = current_user.tasks.new(task_params)
+
+    if params[:back].present?
+      render :new
+      return
+    end
+
     if @task.save
       redirect_to tasks_url, notice: "タスク「#{@task.name}」を登録しました。"
     else
