@@ -26,6 +26,7 @@ RSpec.describe 'タスク管理機能', type: :system do
       visit new_task_url
       fill_in '名称', with: task_name
       click_button '登録する'
+      click_button '登録'
     end
 
     context '新規作成画面で名称を入力したとき' do
