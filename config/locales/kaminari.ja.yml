@@ -3,7 +3,7 @@ ja:
     pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"
-      previous: "&rsaquo; 前"
+      previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "&hellip;"
   helpers:
