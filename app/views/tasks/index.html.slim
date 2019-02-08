@@ -18,8 +18,10 @@ h1 タスク一覧
 table.table.table-hover
   thead.thead-default
     tr
-      th= Task.human_attribute_name(:name)
-      th= Task.human_attribute_name(:created_at)
+      / 名称が同じ場合は、登録日時の降順でソート
+      th= sort_link(@query, :name, [:name, "created_at desc"])
+      / 登録日時をデフォルトでは降順でソート
+      th= sort_link(@query, :created_at, default_order: :desc)
     tbody
       - @tasks.each do |task|
         tr

@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     @query = current_user.tasks.ransack(params[:q])
     # タスクを日時が最新で表示
-    @tasks = @query.result(distinct: true).recent
+    @tasks = @query.result(distinct: true)
   end
 
   def show
