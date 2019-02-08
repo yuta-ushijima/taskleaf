@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     @query = current_user.tasks.ransack(params[:q])
     # タスクを日時が最新で表示
-    @tasks = @query.result(distinct: true)
+    @tasks = @query.result(distinct: true).page(params[:page])
 
     # generate_csvクラスメソッドを呼び出す処理
     respond_to do |format|
