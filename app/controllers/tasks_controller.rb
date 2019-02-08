@@ -2,8 +2,9 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :destroy, :update]
 
   def index
+    @query = current_user.tasks.ransack(params[:q])
     # タスクを日時が最新で表示
-    @tasks = current_user.tasks.order(created_at: :desc)
+    @tasks = @query.result(distinct: true).recent
   end
 
   def show
