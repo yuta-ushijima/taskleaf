@@ -3,6 +3,9 @@ class Task < ApplicationRecord
   validate :validate_name_not_including_comma
 
   belongs_to :user
+  # ActiveStorageの機能で画像添付のための関連付け
+  # has_one_attachedは1つのタスクに1つの画像を紐付ける
+  has_one_attached :image
 
   scope :recent, -> { order(created_at: :desc)}
 
