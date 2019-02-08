@@ -9,6 +9,19 @@ class Task < ApplicationRecord
 
   scope :recent, -> { order(created_at: :desc)}
 
+  def self.csv_attributes
+    %w[name description created_at updated_at]
+  end
+
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      csv << csv_attributes
+      all.each do |task|
+        csv << csv_attributes.map{|attribute| task.send(attribute)}
+      end
+    end
+  end
+
 
   private
 
