@@ -1,24 +1,19 @@
-# README
+# TaskLeaf How to setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby version
+`ruby 2.6.0`
 
-Things you may want to cover:
+### System dependencies
+```bash
+$ bundle install --jobs=4 --path vendor/bundle
+```
 
-* Ruby version
+### Database creation
+```bash
+$ bin/rails db:setup
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### How to run the test suite
+```bash
+bundle exec rspec
+```
