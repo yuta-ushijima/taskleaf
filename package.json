@@ -1,5 +1,8 @@
 {
   "name": "taskleaf",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  }
 }
