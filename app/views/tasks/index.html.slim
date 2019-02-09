@@ -27,7 +27,7 @@ table.table.table-hover
       th= sort_link(@query, :created_at, default_order: :desc)
     tbody
       - @tasks.each do |task|
-        tr
+        tr id="task-#{task.id}"
           td= link_to task.name, task
           td= task.created_at
           td
